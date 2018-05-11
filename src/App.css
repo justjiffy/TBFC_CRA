@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Georgia;
+}
+
+.App-logo {
+  height: 100px;
+}
+
+body, #root, #root div, #root div div, html {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  max-width: 750px;
+  margin: auto;
+}
+header {
+  padding: 0 20px;
+  display: flex;
+
+}
+
+header h1 {
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 0;
+}
+
+nav ul li {
+  width: 100%;
+  border: 2px solid black;
+  transition: background-color 0.15s ease-in-out;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+nav ul li:hover {
+  background-color: tan;
+  cursor: pointer;
+}
+
+footer {
+  font-size: 10px;
+  background-color: black;
+  color: white;
+  padding: 5px 0;
+  align-self: flex-end;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+}
