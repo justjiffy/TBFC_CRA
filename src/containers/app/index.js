@@ -14,18 +14,20 @@ import '../../App.css';
 const App = () => (
   <div>
     <header>
-      <Link to="/"><img src={logo} className="App-logo" alt="TBFC" /></Link>
-      <h1 className="App-title">Topanga Banjo&middot;Fiddle Festival & Contest</h1>
-    </header>
-    <nav>
-      <ul>
-        <li><Link to="/event">EVENT INFO</Link></li>
-        <li><Link to="/contest">CONTESTANTS</Link></li>
-        <li><Link to="/vendor">VENDORS</Link></li>
-        <li><Link to="/volunteer">VOLUNTEERS</Link></li>
-        <li><Link to="/contact">CONTACT</Link></li>
-      </ul>
-    </nav>
+      <Link to="/"><img src={logo} className="App-logo" alt="TBFC" />
+        <h1 className="App-title">Topanga Banjo&middot;Fiddle Festival & Contest</h1>
+      </Link>
+      <nav>
+        <div className="hamburger">OPEN</div>
+        <ul>
+          <li><Link to="/event">EVENT INFO</Link></li>
+          <li><Link to="/contest">CONTESTANTS</Link></li>
+          <li><Link to="/vendor">VENDORS</Link></li>
+          <li><Link to="/volunteer">VOLUNTEERS</Link></li>
+          <li><Link to="/contact">CONTACT</Link></li>
+        </ul>
+      </nav>
+      </header>
     <main>
       <Route exact path="/" component={Home} />
       <Route exact path="/event" component={EventInfo} />
