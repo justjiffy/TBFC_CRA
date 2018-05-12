@@ -8,6 +8,7 @@
 
 .App-logo {
   height: 100px;
+  margin-bottom: -15px;
 }
 
 body, #root, #root div, #root div div, html {
@@ -26,16 +27,25 @@ main {
 }
 header {
   padding: 0 20px;
-  display: flex;
-
+  text-align: center;
 }
 
 header h1 {
-  margin-right: auto;
+  margin: 0;
 }
 
-a {
+nav ul li a {
   text-decoration: none;
+  color: white;
+  display: block;
+  border: 2px solid black;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  background-color: black;
+}
+
+nav ul li a:hover {
+  color: black;
+  background-color: white;
 }
 nav ul {
   display: flex;
@@ -48,24 +58,17 @@ nav ul {
 
 nav ul li {
   width: 100%;
-  border: 2px solid black;
-  transition: background-color 0.15s ease-in-out;
   text-align: center;
-  padding: 5px 0px;
-}
-
-nav ul li:hover {
-  background-color: tan;
-  cursor: pointer;
 }
 
 footer {
   font-size: 10px;
-  background-color: black;
+  background-color: rgba(0,0,0,1);
   color: white;
   padding: 5px 0;
   align-self: flex-end;
   width: 100%;
+  text-align: center;
 }
 
 main {

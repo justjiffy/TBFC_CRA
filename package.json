@@ -2,7 +2,7 @@
   "name": "tbfc-cra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://justjiffy.github.io/TBFC_CRA/",
+  "homepage": "https://justjiffy.github.io/TBFC_CRA/",
   "dependencies": {
     "history": "^4.7.2",
     "react": "^16.3.2",

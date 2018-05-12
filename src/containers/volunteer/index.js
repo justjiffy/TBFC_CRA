@@ -2,7 +2,7 @@ import React from 'react'
 
 export default () => (
   <div>
-    <h1>About Us</h1>
-    <p>Putting on festivals since 1961.</p>
+    <h1>Volunteer</h1>
+    <h2>Volunteers get in free.</h2>
   </div>
 )
