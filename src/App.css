@@ -5,13 +5,11 @@
   height: 100vh;
   font-family: Georgia;
 }
-
 .App-logo {
   height: 80px;
   margin-bottom: -15px;
   margin-left: -5px;
 }
-
 #root {
   display: flex;
   flex-direction: column;
