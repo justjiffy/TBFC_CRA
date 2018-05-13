@@ -7,20 +7,18 @@
 }
 
 .App-logo {
-  height: 100px;
+  height: 80px;
   margin-bottom: -15px;
-}
-
-body, #root, #root div, #root div div, html {
-  height: 100%;
-  margin: 0;
+  margin-left: -5px;
 }
 
 #root {
   display: flex;
   flex-direction: column;
 }
-
+body {
+  margin: 0;
+}
 main {
   max-width: 750px;
   margin: auto;
@@ -35,10 +33,19 @@ header h1 {
   margin: 0;
   display: none;
 }
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .hamburger {
   position: absolute;
   top: 0;
   right: 0;
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  color: white;
 }
 
 .hamburger:active ~ ul li {
@@ -49,7 +56,7 @@ nav ul li a {
   text-decoration: none;
   color: white;
   display: block;
-  border: 2px solid black;
+  padding: 10px 0;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   background-color: black;
 }
@@ -65,12 +72,15 @@ nav ul {
   justify-content: space-around;
   padding: 0;
   position: fixed;
+  right: 0;
+  top: 50px;
+  width: 60%;
+  border: 2px solid black;
 }
 
 nav ul li {
   width: 100%;
   text-align: center;
-  transform: translateY(-500%);
   transition: transform 0.5s linear;
 }
 

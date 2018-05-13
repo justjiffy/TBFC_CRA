@@ -11,15 +11,16 @@ import logo from '../../logo.svg'
 
 import '../../App.css';
 
+
 const App = () => (
-  <div>
+  <div className="container">
     <header>
       <Link to="/"><img src={logo} className="App-logo" alt="TBFC" />
         <h1 className="App-title">Topanga Banjo&middot;Fiddle Festival & Contest</h1>
       </Link>
       <nav>
-        <div className="hamburger">OPEN</div>
-        <ul>
+        <div className="hamburger">X</div>
+        <ul id="nav">
           <li><Link to="/event">EVENT INFO</Link></li>
           <li><Link to="/contest">CONTESTANTS</Link></li>
           <li><Link to="/vendor">VENDORS</Link></li>
