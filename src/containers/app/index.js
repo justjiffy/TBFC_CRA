@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch, withRouter} from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Header from './header'
-import Footer from './footer'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+
 import Home from '../home'
 import EventInfo from '../event'
 import Contest from '../contest'
@@ -21,28 +22,40 @@ import '../../App.css';
 
 const App = props => (
   <div className="container">
-    <Header toggler={props.screenWidth}/>
-    <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/event" component={EventInfo} />
-      <Route exact path="/contest" component={Contest} />
-      <Route exact path="/vendor" component={Vendor} />
-      <Route exact path="/volunteer" component={Volunteer} />
-      <Route exact path="/contact" component={Contact} />
-    </main>
+    <BrowserRouter>
+      <div>
+      <Header
+        width={props.screenWidth}
+        toggle={props.toggleNav}
+        showNav={props.showNav}
+        mobile={props.mobile}
+        />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/event" component={EventInfo} />
+        <Route exact path="/contest" component={Contest} />
+        <Route exact path="/vendor" component={Vendor} />
+        <Route exact path="/volunteer" component={Volunteer} />
+        <Route exact path="/contact" component={Contact} />
+        <Redirect from="*" to="/" />
+      </Switch>
+      </div>
+    </BrowserRouter>
     <Footer />
   </div>
 )
 
 const mapStateToProps = state => ({
   screenWidth: state.nav.screenWidth,
-  showNav: state.nav.showNav
+  showNav: state.nav.showNav,
+  mobile: state.nav.mobile
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   toggleNav
 }, dispatch)
 
-export default connect(
-  mapStateToProps
-)(App)
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App))
