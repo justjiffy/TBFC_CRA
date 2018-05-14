@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import logo from '../../images/logo.svg'
-import hamburger from '../../images/hamburger.svg'
+import logo from '../images/logo.svg'
+import hamburger from '../images/hamburger.svg'
 
 export default class Header extends React.Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
   render() {
     return (
     <header>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch, withRouter} from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Header from './header'
-import Footer from './footer'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Home from '../home'
 import EventInfo from '../event'
 import Contest from '../contest'
@@ -21,8 +21,14 @@ import '../../App.css';
 
 const App = props => (
   <div className="container">
-    <Header width={props.screenWidth} toggle={props.toggleNav} showNav={props.showNav} mobile={props.mobile}/>
     <BrowserRouter>
+      <div>
+      <Header
+        width={props.screenWidth}
+        toggle={props.toggleNav}
+        showNav={props.showNav}
+        mobile={props.mobile}
+        />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/event" component={EventInfo} />
@@ -32,6 +38,7 @@ const App = props => (
         <Route exact path="/contact" component={Contact} />
         <Redirect from="*" to="/" />
       </Switch>
+      </div>
     </BrowserRouter>
     <Footer />
   </div>
@@ -47,7 +54,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   toggleNav
 }, dispatch)
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(App))
