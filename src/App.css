@@ -1,18 +1,10 @@
 .App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   font-family: Georgia;
 }
 .App-logo {
   height: 80px;
   margin-left: -5px;
-  margin-top: 15px;
-}
-#root {
-  display: flex;
-  flex-direction: column;
 }
 body {
   margin: 0;
@@ -39,10 +31,17 @@ header h1 {
   color: black;
   display: none;
 }
+
+header + div {
+  padding: 0 10px;
+}
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+.container div:first-child {
+  height: 100%
 }
 .hamburger {
   position: absolute;
@@ -52,7 +51,6 @@ header h1 {
   width: 45px;
   border: 5px double;
 }
-
 nav ul li a {
   text-decoration: none;
   color: white;
@@ -61,10 +59,14 @@ nav ul li a {
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   background-color: black;
 }
-
 nav ul li a:hover {
   color: black;
   background-color: white;
+}
+nav ul li {
+  width: 100%;
+  text-align: center;
+  transition: transform 0.5s linear;
 }
 nav ul {
   list-style: none;
@@ -77,13 +79,6 @@ nav ul {
   width: 60%;
   border: 2px solid black;
 }
-
-nav ul li {
-  width: 100%;
-  text-align: center;
-  transition: transform 0.5s linear;
-}
-
 footer {
   font-size: 10px;
   background-color: rgba(0,0,0,1);
@@ -99,17 +94,12 @@ footer {
     margin-top: 35px;
     margin-bottom: -3px;
   }
-  body {
-  }
   header {
-    text-align: center;
     flex-direction: column;
   }
-
   header h1 {
     display: block;
   }
-
   nav ul {
     display: flex;
     position: inherit;
