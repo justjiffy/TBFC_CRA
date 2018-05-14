@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 import hamburger from '../../images/hamburger.svg'
 
+import { toggleNav } from '../../modules/nav'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class Header extends React.Component {
         <h1 className="App-title">Topanga Banjo&middot;Fiddle Festival & Contest</h1>
       </Link>
       <nav>
-        { this.props.toggler < 768 ?
+        { this.props.toggler < 786 ?
         <img className="hamburger" src={hamburger} alt="MENU" />
         : null
         }
@@ -32,5 +33,5 @@ export default class Header extends React.Component {
       </nav>
       </header>
     )
-    }
+  }
 }
