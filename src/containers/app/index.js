@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -21,22 +21,26 @@ import '../../App.css';
 
 const App = props => (
   <div className="container">
-    <Header toggler={props.screenWidth}/>
-    <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/event" component={EventInfo} />
-      <Route exact path="/contest" component={Contest} />
-      <Route exact path="/vendor" component={Vendor} />
-      <Route exact path="/volunteer" component={Volunteer} />
-      <Route exact path="/contact" component={Contact} />
-    </main>
+    <Header width={props.screenWidth} toggle={props.toggleNav} showNav={props.showNav} mobile={props.mobile}/>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/event" component={EventInfo} />
+        <Route exact path="/contest" component={Contest} />
+        <Route exact path="/vendor" component={Vendor} />
+        <Route exact path="/volunteer" component={Volunteer} />
+        <Route exact path="/contact" component={Contact} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </BrowserRouter>
     <Footer />
   </div>
 )
 
 const mapStateToProps = state => ({
   screenWidth: state.nav.screenWidth,
-  showNav: state.nav.showNav
+  showNav: state.nav.showNav,
+  mobile: state.nav.mobile
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -44,5 +48,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
