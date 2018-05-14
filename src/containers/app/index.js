@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-
 import Home from '../home'
 import EventInfo from '../event'
 import Contest from '../contest'
