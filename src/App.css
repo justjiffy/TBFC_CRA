@@ -5,40 +5,63 @@
   height: 100vh;
   font-family: Georgia;
 }
-
 .App-logo {
-  height: 100px;
-  margin-bottom: -15px;
+  height: 80px;
+  margin-left: -5px;
+  margin-top: 15px;
 }
-
-body, #root, #root div, #root div div, html {
-  height: 100%;
-  margin: 0;
-}
-
 #root {
   display: flex;
   flex-direction: column;
 }
-
+body {
+  margin: 0;
+}
 main {
+  width: 100%;
+  height: 100%;
   max-width: 750px;
   margin: auto;
 }
 header {
-  padding: 0 20px;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+header a {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
 }
 
 header h1 {
   margin: 0;
+  color: black;
+  display: none;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.hamburger {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  height: 45px;
+  width: 45px;
+  border: 5px double;
+}
+
+.hamburger:active ~ ul li {
+   transform: translateY(0);
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
   display: block;
-  border: 2px solid black;
+  padding: 10px 0;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   background-color: black;
 }
@@ -48,17 +71,22 @@ nav ul li a:hover {
   background-color: white;
 }
 nav ul {
-  display: flex;
+  display: none;
   list-style: none;
+  flex-direction: column;
   justify-content: space-around;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
   padding: 0;
+  position: fixed;
+  right: 0;
+  top: 50px;
+  width: 60%;
+  border: 2px solid black;
 }
 
 nav ul li {
   width: 100%;
   text-align: center;
+  transition: transform 0.5s linear;
 }
 
 footer {
@@ -71,6 +99,30 @@ footer {
   text-align: center;
 }
 
-main {
-  height: 100%;
+@media only screen and (min-width: 768px) {
+  .App-logo {
+    margin-top: 35px;
+    margin-bottom: -3px;
+  }
+  body {
+    margin-top: 10px;
+  }
+  header {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  header h1 {
+    display: block;
+  }
+
+  nav ul {
+    display: flex;
+    position: inherit;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    top: 70px;
+    margin: 5px auto;
+  }
 }

@@ -6,7 +6,15 @@ import store, { history } from './store'
 
 import App from './containers/app';
 
+import {
+  screenResize
+} from './modules/nav'
+
 const target = document.querySelector('#root')
+
+window.addEventListener('resize', () => {
+    store.dispatch(screenResize(window.innerWidth));
+});
 
 render(
   <Provider store={store}>
