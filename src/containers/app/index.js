@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Header from './header'
@@ -11,7 +12,12 @@ import Vendor from '../vendor'
 import Volunteer from '../volunteer'
 import Contact from '../contact'
 
+import {
+  toggleNav
+} from '../../modules/nav'
+
 import '../../App.css';
+
 
 const App = props => (
   <div className="container">
@@ -29,8 +35,13 @@ const App = props => (
 )
 
 const mapStateToProps = state => ({
-  screenWidth: state.nav.screenWidth
+  screenWidth: state.nav.screenWidth,
+  showNav: state.nav.showNav
 })
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  toggleNav
+}, dispatch)
 
 export default connect(
   mapStateToProps
