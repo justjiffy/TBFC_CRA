@@ -5,7 +5,25 @@ import logo from '../images/logo.svg'
 import hamburger from '../images/hamburger.svg'
 
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      target: null
+    }
+  }
+
+  showSub = (menu) => {
+    this.setState({
+      target: [menu.target.id]
+    })
+  }
+
   render() {
+    const eventSub = [
+      ["Contest Info", "link: '#'"],
+      ["Event Info", "link: '#'"],
+      ["Free Concerts", "link: '#'"]
+    ]
     return (
     <header>
       <Link to="/"><img src={logo} className="App-logo" alt="TBFC" />
@@ -18,7 +36,10 @@ export default class Header extends React.Component {
         }
         { this.props.showNav ?
           <ul id="nav">
-            <li><Link to="/event">EVENT INFO</Link></li>
+            <li onMouseEnter={this.showSub.bind(this)} onMouseLeave={()=> this.setState({target:null})}>
+              <Link to="/event" id="eventMenu">EVENT INFO</Link>
+              { this.state.target == "eventMenu" ? <Submenu mouseLeave={this.hideSub} display={eventSub} /> : null }
+            </li>
             <li><Link to="/contest">CONTESTANTS</Link></li>
             <li><Link to="/vendor">VENDORS</Link></li>
             <li><Link to="/volunteer">VOLUNTEERS</Link></li>
@@ -45,3 +66,15 @@ class Toggler extends React.Component {
     )
   }
 }
+ class Submenu extends React.Component {
+   render() {
+     const listItems = this.props.display.map(
+       (item, index) => <li key={index}>{item[0]}</li>
+     )
+     return (
+       <ul className="submenu">
+        {listItems}
+       </ul>
+     )
+   }
+ }
