@@ -9,6 +9,7 @@ const initialState = {
   screenWidth: typeof window === 'object' ? window.innerWidth : null,
   showNav: window.innerWidth > minWidth ? true : false,
   mobile: window.innerWidth < minWidth ? true : false,
+  target: null
 }
 
 export default (state = initialState, action) => {
@@ -25,6 +26,11 @@ export default (state = initialState, action) => {
         ...state,
         showNav: !state.showNav
       }
+    case SHOW_SUB:
+      return {
+        ...state,
+        target: action.target
+      }
     default:
       return state;
   }
@@ -40,10 +46,17 @@ export const screenResize = (width) => {
 }
 
 export const toggleNav = () => {
-  console.log("toggleNav called");
   return dispatch => {
     dispatch({
       type: TOGGLE_NAV
+    })
+  }
+}
+
+export const showSubMenu = (target) => {
+  return dispatch => {
+    dispatch({
+      type: SHOW_SUB
     })
   }
 }

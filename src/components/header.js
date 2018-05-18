@@ -24,6 +24,7 @@ export default class Header extends React.Component {
       ["Event Info", "link: '#'"],
       ["Free Concerts", "link: '#'"]
     ]
+
     return (
     <header>
       <Link to="/"><img src={logo} className="App-logo" alt="TBFC" />
