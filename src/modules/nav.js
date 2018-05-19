@@ -1,8 +1,9 @@
 export const RESIZE = 'nav/screenResize'
 export const TOGGLE = 'nav/toggleNav'
+export const SHOWSUB = 'nav/showSubMenu'
 export const SCREEN_RESIZE = 'nav/SCREEN_RESIZE'
 export const TOGGLE_NAV = 'nav/TOGGLE_NAV'
-
+export const SHOW_SUB = 'nav/SHOW_SUB'
 const minWidth = 786
 
 const initialState = {
@@ -56,7 +57,8 @@ export const toggleNav = () => {
 export const showSubMenu = (target) => {
   return dispatch => {
     dispatch({
-      type: SHOW_SUB
+      type: SHOW_SUB,
+      target: target
     })
   }
 }

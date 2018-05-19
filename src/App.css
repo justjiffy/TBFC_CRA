@@ -102,15 +102,14 @@ footer {
   text-align: center;
 }
 .submenu {
-  position: absolute;
-  top: 38px;
+  position: relative;
+  width: 100%;
+}
+.submenu li a {
+  background: #999999;
+  padding-left: 10px;
 }
 
-.submenu li {
-  text-align: center;
-  padding: 3px 0;
-  background: white;
-}
 @media only screen and (min-width: 768px) {
   .App-logo {
     margin-top: 35px;
@@ -131,4 +130,9 @@ footer {
     top: 70px;
     margin: 5px auto;
   }
+  .submenu {
+    position: absolute;
+    top: 38px;
+  }
+
 }

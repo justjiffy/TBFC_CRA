@@ -5,25 +5,30 @@ import logo from '../images/logo.svg'
 import hamburger from '../images/hamburger.svg'
 
 export default class Header extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      target: null
-    }
-  }
-
-  showSub = (menu) => {
-    this.setState({
-      target: [menu.target.id]
-    })
-  }
-
   render() {
     const eventSub = [
-      ["Contest Info", "link: '#'"],
-      ["Event Info", "link: '#'"],
-      ["Free Concerts", "link: '#'"]
+      ["Contest Info", "#"],
+      ["Event Info", "#"],
+      ["Free Concerts", "#"]
     ]
+
+    const contestSub = [
+      ["Contest Rules", "#"],
+      ["Registration", "#"],
+      ["Winners", '#']
+    ]
+
+    const vendorSub = [
+      ["Featured Vendors", "#"],
+      ["Application", "#"],
+      ["FAQ", "#"]
+    ]
+
+    const volunteerSub = [
+      ["Sign up!", "#"],
+      ["FAQ", "#"]
+    ]
+    const enter = (menu) => this.props.showSub(menu)
 
     return (
     <header>
@@ -36,15 +41,25 @@ export default class Header extends React.Component {
           : null
         }
         { this.props.showNav ?
-          <ul id="nav">
-            <li onMouseEnter={this.showSub.bind(this)} onMouseLeave={()=> this.setState({target:null})}>
+          <ul id="nav" onMouseLeave={() => enter(null)} >
+            <li onMouseEnter={() => enter('eventMenu')}>
               <Link to="/event" id="eventMenu">EVENT INFO</Link>
-              { this.state.target == "eventMenu" ? <Submenu mouseLeave={this.hideSub} display={eventSub} /> : null }
+              { this.props.target === "eventMenu" ? <SubMenu display={eventSub} /> : null }
             </li>
-            <li><Link to="/contest">CONTESTANTS</Link></li>
-            <li><Link to="/vendor">VENDORS</Link></li>
-            <li><Link to="/volunteer">VOLUNTEERS</Link></li>
-            <li><Link to="/contact">CONTACT</Link></li>
+            <li onMouseEnter={() => enter('contestMenu')}>
+              <Link to="/contest">CONTESTANTS</Link>
+              { this.props.target === "contestMenu" ? <SubMenu display={contestSub} /> : null }
+            </li>
+            <li onMouseEnter={() => enter('vendorMenu')}>
+              <Link to="/vendor">VENDORS</Link>
+              { this.props.target === "vendorMenu" ? <SubMenu display={vendorSub} /> : null }
+            </li>
+            <li onMouseEnter={() => enter('volunteerMenu')}>
+              <Link to="/volunteer">VOLUNTEERS</Link>
+              { this.props.target === 'volunteerMenu' ? <SubMenu display={volunteerSub} /> : null }
+            </li>
+            <li onMouseEnter={()=> enter(null)}><Link to="/contact">CONTACT</Link>
+            </li>
           </ul>
           : null
         }
@@ -67,10 +82,11 @@ class Toggler extends React.Component {
     )
   }
 }
- class Submenu extends React.Component {
+
+class SubMenu extends React.Component {
    render() {
      const listItems = this.props.display.map(
-       (item, index) => <li key={index}>{item[0]}</li>
+       (item, index) => <li key={index}><Link to={item[1]}>{item[0]}</Link></li>
      )
      return (
        <ul className="submenu">

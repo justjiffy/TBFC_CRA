@@ -13,7 +13,8 @@ import Volunteer from '../volunteer'
 import Contact from '../contact'
 
 import {
-  toggleNav
+  toggleNav,
+  showSubMenu
 } from '../../modules/nav'
 
 import '../../App.css';
@@ -27,7 +28,9 @@ const App = props => (
         width={props.screenWidth}
         toggle={props.toggleNav}
         showNav={props.showNav}
+        showSub={props.showSubMenu}
         mobile={props.mobile}
+        target={props.target}
         />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -47,11 +50,13 @@ const App = props => (
 const mapStateToProps = state => ({
   screenWidth: state.nav.screenWidth,
   showNav: state.nav.showNav,
+  target: state.nav.target,
   mobile: state.nav.mobile
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleNav
+  toggleNav,
+  showSubMenu
 }, dispatch)
 
 export default withRouter(connect(
