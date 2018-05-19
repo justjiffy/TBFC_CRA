@@ -7,15 +7,15 @@ import hamburger from '../images/hamburger.svg'
 export default class Header extends React.Component {
   render() {
     const eventSub = [
-      ["Contest Info", "#"],
-      ["Event Info", "#"],
-      ["Free Concerts", "#"]
+      ["2018 Event", "/event"],
+      ["Archives", "/event"],
+      ["Free Concerts", "/freeconcerts"]
     ]
 
     const contestSub = [
-      ["Contest Rules", "#"],
-      ["Registration", "#"],
-      ["Winners", '#']
+      ["Contest Rules", "/contest"],
+      ["Registration", "/registration"],
+      ["Winners", '/winners']
     ]
 
     const vendorSub = [
