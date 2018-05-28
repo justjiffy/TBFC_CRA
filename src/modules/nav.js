@@ -10,7 +10,26 @@ const initialState = {
   screenWidth: typeof window === 'object' ? window.innerWidth : null,
   showNav: window.innerWidth > minWidth ? true : false,
   mobile: window.innerWidth < minWidth ? true : false,
-  target: null
+  target: null,
+  eventSub: [
+      ["2018 Event", "/event"],
+      ["Archives", "/event"],
+      ["Free Concerts", "/freeconcerts"]
+    ],
+    contestSub: [
+      ["Contest Rules", "/contest"],
+      ["Registration", "/registration"],
+      ["Winners", '/winners']
+    ],
+    vendorSub: [
+      ["Featured Vendors", "#"],
+      ["Application", "#"],
+      ["FAQ", "#"]
+    ],
+    volunteerSub: [
+      ["Sign up!", "#"],
+      ["FAQ", "#"]
+    ]
 }
 
 export default (state = initialState, action) => {

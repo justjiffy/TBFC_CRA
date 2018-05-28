@@ -24,14 +24,7 @@ const App = props => (
   <div className="container">
     <BrowserRouter>
       <div>
-      <Header
-        width={props.screenWidth}
-        toggle={props.toggleNav}
-        showNav={props.showNav}
-        showSub={props.showSubMenu}
-        mobile={props.mobile}
-        target={props.target}
-        />
+      <Header {...props} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/event" component={EventInfo} />
@@ -48,10 +41,7 @@ const App = props => (
 )
 
 const mapStateToProps = state => ({
-  screenWidth: state.nav.screenWidth,
-  showNav: state.nav.showNav,
-  target: state.nav.target,
-  mobile: state.nav.mobile
+  nav: state.nav
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

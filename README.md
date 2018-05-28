@@ -1,5 +1,7 @@
-WIREFRAME: https://wireframe.cc/qFlhCs
-
+WIREFRAMES:
+ homepage / desktop - https://wireframe.cc/qFlhCs
+ homepage / mobile - https://wireframe.cc/WrFu0H
+ 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
